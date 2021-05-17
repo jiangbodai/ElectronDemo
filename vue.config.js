@@ -6,10 +6,11 @@ function resolve (dir) {
 }
 
 module.exports = {
+    lintOnSave: false,
     publicPath: './',
     devServer: {
         // can be overwritten by process.env.HOST
-        host: '0.0.0.0',  
+        host: '0.0.0.0',
         port: 8080
     },
     chainWebpack: config => {
@@ -17,7 +18,7 @@ module.exports = {
             .set('@', resolve('src'))
             .set('src', resolve('src'))
             .set('common', resolve('src/common'))
-            .set('components', resolve('src/components'));    
+            .set('components', resolve('src/components'));
     },
     // 设置APP及安装包图标
     pluginOptions: {
@@ -25,7 +26,7 @@ module.exports = {
             builderOptions: {
                 win: {
                     icon: './public/app.ico'
-                }, 
+                },
                 mac: {
                     icon: './public/app.png'
                 },
