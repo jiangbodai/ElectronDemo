@@ -49,7 +49,6 @@ router.beforeEach((to, from, next) =>{
   let require = to.matched.some( (item) => {
     return item.meta.isLogin;
   })
-
   if (!login_in && require){
     next({
       name: 'login',

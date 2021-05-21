@@ -1,6 +1,7 @@
 'use strict'
 
-import { app, protocol, BrowserWindow, Menu, globalShortcut} from 'electron'
+import { app, protocol, BrowserWindow, Menu, globalShortcut, ipcMain} from 'electron'
+import { autoUpdater } from 'electron-updater'
 import {
   createProtocol,
 } from 'vue-cli-plugin-electron-builder/lib'
@@ -29,13 +30,15 @@ function createWindow () {
         webSecurity: false,
         nodeIntegration: true
     },
-    icon: `${__static}/app.ico`
+    icon: `${__static}/app.ico`,
   })
 
   if (process.env.WEBPACK_DEV_SERVER_URL) {
     // Load the url of the dev server if in development mode
     win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
-    if (!process.env.IS_TEST) win.webContents.openDevTools()
+    if (!process.env.IS_TEST)
+    win.webContents.openDevTools()
+    win.webContents.openDevTools({mode:'right'});
   } else {
     createProtocol('app')
     // Load the index.html when not in development
@@ -113,3 +116,11 @@ if (isDevelopment) {
     })
   }
 }
+
+ipcMain.on('login', () => {
+  if (process.env.WEBPACK_DEV_SERVER_URL) {
+    win.loadURL(process.env.WEBPACK_DEV_SERVER_URL)
+  } else {
+    win.loadURL('app://./index.html')
+  }
+})

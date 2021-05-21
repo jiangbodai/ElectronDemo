@@ -1,18 +1,23 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <a-button type="primary" @click="exitLogin">退出登录</a-button>
+    <task-bar :medicalType="123"></task-bar>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import TaskBar from "@/components/main/TaskBar.vue";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    HelloWorld
-  }
-}
+    TaskBar,
+  },
+  methods: {
+    exitLogin() {
+      localStorage.setItem("login", "");
+      console.log("退出");
+      this.$electron.ipcRenderer.send("login");
+    },
+  },
+};
 </script>
