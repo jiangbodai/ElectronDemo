@@ -4,8 +4,7 @@
     <div class="destop-logo"></div>
     <div class="content">
       <treatment-tag class="treatmentTag"></treatment-tag>
-
-      <div class="right"></div>
+      <future-function class="futureFunction"></future-function>
     </div>
   </div>
 </template>
@@ -13,11 +12,13 @@
 <script>
 import TaskBar from "@/components/main/TaskBar.vue";
 import TreatmentTag from "@/components/main/TreatmentTag.vue";
+import FutureFunction from "@/components/main/FutureFuntion.vue";
 export default {
   name: "Home",
   components: {
     TaskBar,
     TreatmentTag,
+    FutureFunction,
   },
   methods: {},
 };
@@ -45,7 +46,7 @@ export default {
       height: 100%;
     }
 
-    .right {
+    .futureFunction {
       width: 55%;
       height: 100%;
     }
