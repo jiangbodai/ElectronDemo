@@ -1,6 +1,11 @@
 <template>
   <div class="home">
-    <task-bar class="taskBar" :medicalType="1234565"></task-bar>
+    <task-bar
+      class="taskBar"
+      :medicalType="1234565"
+      @changeArea="changeArea"
+      @changeRole="changeRole"
+    ></task-bar>
     <div class="destop-logo"></div>
     <div class="content">
       <treatment-tag class="treatmentTag"></treatment-tag>
@@ -20,7 +25,14 @@ export default {
     TreatmentTag,
     FutureFunction,
   },
-  methods: {},
+  methods: {
+    changeArea() {
+      console.log("======");
+    },
+    changeRole() {
+      this.$store.commit("changeIcons", "急症科门诊医生");
+    },
+  },
 };
 </script>
 

@@ -37,10 +37,12 @@ export default {
         case "锁屏":
           break;
         case "修改角色":
+          this.$emit("changeRole");
           break;
         case "修改密码":
           break;
         case "切换院区":
+          this.$emit("changeArea");
           break;
         case "退出账号":
           console.log("退出账号");

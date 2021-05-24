@@ -38,6 +38,29 @@ const state = {
     }]
   }
 
+  const mutations = {
+      changeIcons(state,type){
+        switch (type) {
+          case "急症科门诊医生":
+            state.icons = state.icons.filter(
+              (item) => {
+                return item.title == '分诊系统' || item.title == '危急重症中心' || item.title == '系统设置'
+              }
+            )
+            break;
+          case "急症科病区医生":
+            break;
+          case "急症科门诊护士":
+            break;
+          case "超级管理员":
+            break;
+          default:
+            break;
+        }
+      }
+  }
+
   export default {
-    state
+    state,
+    mutations
   }
