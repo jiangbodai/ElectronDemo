@@ -1,23 +1,71 @@
 <template>
   <div class="home">
-    <a-button type="primary" @click="exitLogin">退出登录</a-button>
-    <task-bar :medicalType="123"></task-bar>
+    <task-bar class="taskBar" :medicalType="1234565"></task-bar>
+    <div class="destop-logo"></div>
+    <div class="content">
+      <treatment-tag class="treatmentTag"></treatment-tag>
+
+      <div class="right"></div>
+    </div>
   </div>
 </template>
 
 <script>
 import TaskBar from "@/components/main/TaskBar.vue";
+import TreatmentTag from "@/components/main/TreatmentTag.vue";
 export default {
   name: "Home",
   components: {
     TaskBar,
+    TreatmentTag,
   },
-  methods: {
-    exitLogin() {
-      localStorage.setItem("login", "");
-      console.log("退出");
-      this.$electron.ipcRenderer.send("login");
-    },
-  },
+  methods: {},
 };
 </script>
+
+<style lang="stylus" scoped>
+.home {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../assets/images/home/desktop-bg.png');
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  position: relative;
+
+  .content {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    bottom: 40px;
+    display: flex;
+    flex-direction: row;
+
+    .treatmentTag {
+      width: 45%;
+      height: 100%;
+    }
+
+    .right {
+      width: 55%;
+      height: 100%;
+    }
+  }
+
+  .taskBar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  .destop-logo {
+    background-image: url('../assets/images/home/logo-desktop.png');
+    background-repeat: no-repeat;
+    background-size: auto auto;
+    position: absolute;
+    width: 321px;
+    height: 119px;
+    right: 50px;
+    bottom: 70px;
+  }
+}
+</style>

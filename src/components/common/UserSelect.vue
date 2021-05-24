@@ -1,7 +1,7 @@
 <template>
   <div class="userSelect" @click="click">
     <div class="content">
-      <ul class="panel" v-show="!isShowPanel">
+      <ul class="panel" v-show="isShowPanel">
         <li v-for="(item, index) in dataList" :key="index">
           {{ item }}
         </li>
@@ -9,8 +9,8 @@
     </div>
     <div class="title">
       {{ userName }}
-      <a-icon class="handle-bar-name" v-show="!isShowPanel" type="caret-up" />
-      <a-icon class="handle-bar-name" v-show="isShowPanel" type="caret-down" />
+      <a-icon class="handle-bar-name" v-show="isShowPanel" type="caret-up" />
+      <a-icon class="handle-bar-name" v-show="!isShowPanel" type="caret-down" />
     </div>
   </div>
 </template>
@@ -24,14 +24,11 @@ export default {
       isShowPanel: false,
     };
   },
-  mounted() {
-    console.log(this.dataList);
-  },
   methods: {
     click(e) {
       this.isShowPanel = !this.isShowPanel;
       if (e.target.nodeName.toLowerCase() == "li") {
-        console.log(e.target.innerHTML);
+        this.$emit("choseSelect", e.target.innerHTML);
       }
     },
   },
@@ -40,16 +37,18 @@ export default {
 
 <style lang="stylus" scoped>
 .userSelect {
-  background: red;
-  width: 100px;
+  z-index: 200;
+  width: 80px;
   position: relative;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  color: white;
+  font-weight: 600;
 
   .title {
-    height: 44px;
+    height: 40px;
   }
 
   ul {
@@ -61,7 +60,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    bottom: 44px;
+    bottom: 40px;
 
     li {
       font-size: 13px;
@@ -71,6 +70,7 @@ export default {
       list-style: none;
       margin: 0 auto;
       width: 100%;
+      font-weight: 400;
 
       &:last-child {
         border: none;

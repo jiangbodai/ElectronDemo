@@ -6,13 +6,11 @@ import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css';
 import VueI18n from 'vue-i18n'
 
-import VueBus from './utils/bus'
 
 Vue.config.productionTip = false
 
 Vue.use(Antd)
 Vue.use(VueI18n)
-Vue.use(VueBus)
 
 const i18n = new VueI18n({
   locale: localStorage.lang || 'zh-CN',
