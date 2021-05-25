@@ -3,7 +3,7 @@
     <div class="content">
       <span class="title">急诊临床信息系统（ECIS）</span>
       <ul class="list">
-        <li v-for="(item, index) in dataList" :key="index">
+        <li v-for="(item, index) in dataList(role)" :key="index">
           <a>
             <div class="image" :class="item.name">
               <img :src="item.icon" align="middle" />
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 export default {
   name: "TreatmentTag",
   data() {
@@ -25,13 +25,13 @@ export default {
   },
   computed: {
     ...mapState({
-      dataList: (state) => {
-        return state.TreatmentTags.icons;
+      role: (state) => {
+        return state.AppConfig.role;
       },
     }),
-  },
-  mounted() {
-    console.log();
+    ...mapGetters({
+      dataList: "currentIcons",
+    }),
   },
 };
 </script>

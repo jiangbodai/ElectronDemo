@@ -1,9 +1,11 @@
-import Vue from 'vue'
-
-const state = {
-    noInternet : false
-}
-
 export default{
-    state
+    state: {
+        noInternet : false,
+        role: '超级管理员'
+    },
+    mutations: {
+        changeRole(state, role){
+            state.role = role;
+        }
+    },
 }

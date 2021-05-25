@@ -18,6 +18,7 @@
 import TaskBar from "@/components/main/TaskBar.vue";
 import TreatmentTag from "@/components/main/TreatmentTag.vue";
 import FutureFunction from "@/components/main/FutureFuntion.vue";
+import { mapState, mapMutations } from "vuex";
 export default {
   name: "Home",
   components: {
@@ -30,7 +31,7 @@ export default {
       console.log("======");
     },
     changeRole() {
-      this.$store.commit("changeIcons", "急症科门诊医生");
+      this.$store.commit("changeRole", "急症科门诊医生");
     },
   },
 };
