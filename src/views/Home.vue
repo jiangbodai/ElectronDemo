@@ -11,6 +11,11 @@
       <treatment-tag class="treatmentTag"></treatment-tag>
       <future-function class="futureFunction"></future-function>
     </div>
+    <change-role
+      :visible="visible"
+      @clickOk="changeRoleClickOk"
+      @clickCancel="changeRoleClickCancel"
+    ></change-role>
   </div>
 </template>
 
@@ -18,6 +23,7 @@
 import TaskBar from "@/components/main/TaskBar.vue";
 import TreatmentTag from "@/components/main/TreatmentTag.vue";
 import FutureFunction from "@/components/main/FutureFuntion.vue";
+import ChangeRole from "@/components/main/ChangeRole.vue";
 import { mapState, mapMutations } from "vuex";
 export default {
   name: "Home",
@@ -25,13 +31,34 @@ export default {
     TaskBar,
     TreatmentTag,
     FutureFunction,
+    ChangeRole,
+  },
+  data() {
+    return {
+      visible: false,
+    };
   },
   methods: {
     changeArea() {
       console.log("======");
     },
+    /**
+     * 点击修改角色
+     */
     changeRole() {
-      this.$store.commit("changeRole", "急症科门诊医生");
+      this.visible = !this.visible;
+    },
+    /**
+     * 修改角色完毕
+     */
+    changeRoleClickOk() {
+      this.visible = !this.visible;
+    },
+    /**
+     * 取消修改角色
+     */
+    changeRoleClickCancel() {
+      this.visible = !this.visible;
     },
   },
 };
