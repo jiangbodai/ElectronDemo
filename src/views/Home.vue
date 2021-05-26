@@ -2,7 +2,7 @@
   <div class="home">
     <task-bar
       class="taskBar"
-      :medicalType="1234565"
+      :medicalTypes="medicalTypes"
       @changeArea="changeArea"
       @changeRole="changeRole"
     ></task-bar>
@@ -36,6 +36,7 @@ export default {
   data() {
     return {
       visible: false,
+      medicalTypes: ["分诊系统", "系统设置", "危急重症中心"],
     };
   },
   methods: {

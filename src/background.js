@@ -27,9 +27,9 @@ function createWindow () {
     width: 1200,
     maxWidth: 1200,
     minWidth: 1200,
-    height: 750,
-    maxHeight: 750,
-    minHeight: 750,
+    height: 700,
+    maxHeight: 700,
+    minHeight: 700,
     webPreferences: {
         webSecurity: false,
         nodeIntegration: true

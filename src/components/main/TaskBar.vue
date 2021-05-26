@@ -2,7 +2,14 @@
   <div class="taskBar">
     <div class="left">
       <a-button class="setting" type="link" icon="home" size="large" />
-      <span>{{ medicalType }}</span>
+      <a-button
+        class="medicalType"
+        type="link"
+        v-for="(item, index) in medicalTypes"
+        :key="index"
+      >
+        {{ item }}
+      </a-button>
     </div>
     <div class="right">
       <span class="welcome">欢迎您,</span>
@@ -21,7 +28,7 @@
 import UserSelect from "../common/UserSelect.vue";
 export default {
   name: "taskBar",
-  props: ["medicalType"],
+  props: ["medicalTypes"],
   components: {
     UserSelect,
   },
@@ -69,7 +76,23 @@ export default {
   .left {
     height: 40px;
     line-height: 40px;
-    color: white;
+
+    .medicalType {
+      height: 38px;
+      width: 90px;
+      margin-right: 1px;
+      color: white;
+      background: rgba(250, 250, 250 0.1);
+      border-radius: 0;
+      border-left: 0.5px solid lightgray;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      &:last-child {
+        border-right: 0.5px solid lightgray;
+      }
+    }
   }
 
   .right {

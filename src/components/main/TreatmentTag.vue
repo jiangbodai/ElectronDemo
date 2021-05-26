@@ -42,7 +42,7 @@ export default {
 
   .content {
     background: #152949;
-    margin: 60px 20px 80px 50px;
+    margin: 60px 20px 10px 50px;
     border-radius: 10px;
 
     .title {
