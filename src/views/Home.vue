@@ -8,7 +8,10 @@
     ></task-bar>
     <div class="destop-logo"></div>
     <div class="content">
-      <treatment-tag class="treatmentTag"></treatment-tag>
+      <treatment-tag
+        class="treatmentTag"
+        @clickTreatmentItem="clickTreatmentItem"
+      ></treatment-tag>
       <future-function class="futureFunction"></future-function>
     </div>
     <change-role
@@ -16,6 +19,15 @@
       @clickOk="changeRoleClickOk"
       @clickCancel="changeRoleClickCancel"
     ></change-role>
+    <component
+      class="workTask"
+      :is="item.componentName"
+      v-show="item.active"
+      :class="item.isWorking"
+      :data="item"
+      v-for="(item, index) in medicalTypes"
+      :key="index"
+    ></component>
   </div>
 </template>
 
@@ -24,6 +36,9 @@ import TaskBar from "@/components/main/TaskBar.vue";
 import TreatmentTag from "@/components/main/TreatmentTag.vue";
 import FutureFunction from "@/components/main/FutureFuntion.vue";
 import ChangeRole from "@/components/main/ChangeRole.vue";
+import TriageSystem from "@/components/triageSystem/TriageSystem.vue";
+import MobileInfusion from "@/components/mobileInfusion/MobileinFusion.vue";
+import PatientsControl from "@/components/patientsControl/PatientsControl.vue";
 import { mapState, mapMutations } from "vuex";
 export default {
   name: "Home",
@@ -32,12 +47,21 @@ export default {
     TreatmentTag,
     FutureFunction,
     ChangeRole,
+    TriageSystem,
+    MobileInfusion,
+    PatientsControl,
   },
   data() {
     return {
       visible: false,
-      medicalTypes: ["分诊系统", "系统设置", "危急重症中心"],
     };
+  },
+  computed: {
+    ...mapState({
+      medicalTypes: (state) => {
+        return state.WorkingTask.currentTasks;
+      },
+    }),
   },
   methods: {
     changeArea() {
@@ -60,6 +84,13 @@ export default {
      */
     changeRoleClickCancel() {
       this.visible = !this.visible;
+    },
+    /**
+     * 点击信息系统item
+     */
+    clickTreatmentItem(item) {
+      console.log("======");
+      console.log(item);
     },
   },
 };
@@ -108,6 +139,20 @@ export default {
     height: 119px;
     right: 50px;
     bottom: 70px;
+  }
+
+  .tasks {
+    width: 100vw;
+    height: 100vh;
+    background: red;
+  }
+
+  .working {
+    z-index: 600;
+  }
+
+  .unWork {
+    z-index: 500;
   }
 }
 </style>

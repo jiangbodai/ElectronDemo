@@ -4,7 +4,7 @@
       <span class="title">急诊临床信息系统（ECIS）</span>
       <ul class="list">
         <li v-for="(item, index) in dataList(role)" :key="index">
-          <a>
+          <a @click="clickTreatmentItem(item.title)">
             <div class="image" :class="item.name">
               <img :src="item.icon" align="middle" />
             </div>
@@ -32,6 +32,11 @@ export default {
     ...mapGetters({
       dataList: "currentIcons",
     }),
+  },
+  methods: {
+    clickTreatmentItem(event) {
+      this.$emit("clickTreatmentItem", event);
+    },
   },
 };
 </script>

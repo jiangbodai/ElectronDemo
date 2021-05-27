@@ -56,8 +56,4 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-.changeRole {
-  background: red;
-}
-</style>
+<style lang="stylus" scoped></style>

@@ -4,11 +4,13 @@
       <a-button class="setting" type="link" icon="home" size="large" />
       <a-button
         class="medicalType"
+        :class="item.isWorking"
         type="link"
         v-for="(item, index) in medicalTypes"
         :key="index"
+        @click="taskItemClick(item)"
       >
-        {{ item }}
+        {{ item.title }}
       </a-button>
     </div>
     <div class="right">
@@ -37,7 +39,6 @@ export default {
       dataList: ["锁屏", "修改角色", "修改密码", "切换院区", "退出账号"],
     };
   },
-  mounted() {},
   methods: {
     choseSelect(data) {
       switch (data.trim()) {
@@ -61,6 +62,12 @@ export default {
           break;
       }
     },
+    /**
+     * 点击正在工作的任务栏
+     */
+    taskItemClick(event) {
+      this.$store.commit("currentWorkingTask", event);
+    },
   },
 };
 </script>
@@ -77,12 +84,15 @@ export default {
     height: 40px;
     line-height: 40px;
 
+    .working {
+      background: rgba(250, 250, 250 0.3);
+    }
+
     .medicalType {
       height: 38px;
       width: 90px;
       margin-right: 1px;
       color: white;
-      background: rgba(250, 250, 250 0.1);
       border-radius: 0;
       border-left: 0.5px solid lightgray;
       overflow: hidden;
