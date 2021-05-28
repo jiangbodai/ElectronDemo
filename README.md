@@ -1,6 +1,7 @@
 # 练习vue+elecgron
 
 ## dependencies
+<hr>
 ### "animate.css": "^4.1.1",
 ### "ant-design-vue": "^1.7.5",
 ### "core-js": "^3.1.2",
@@ -9,6 +10,7 @@
 ### "vue-i18n": "^8.24.4",
 ### "vue-router": "^3.2.0",
 ### "vuex": "^3.4.0"
+<hr>
 <br>
 
 ## devDependencies
