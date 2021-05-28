@@ -19,15 +19,20 @@
       @clickOk="changeRoleClickOk"
       @clickCancel="changeRoleClickCancel"
     ></change-role>
-    <component
-      class="workTask"
-      :is="item.componentName"
-      v-show="item.active"
-      :class="item.isWorking"
-      :data="item"
-      v-for="(item, index) in medicalTypes"
-      :key="index"
-    ></component>
+    <transition-group
+      enter-active-class="animate__animated animate__zoomIn"
+      leave-active-class="animate__animated animate__zoomOut"
+    >
+      <component
+        class="workTask"
+        :is="item.componentName"
+        v-show="item.active"
+        :class="item.isWorking"
+        :data="item"
+        v-for="item in medicalTypes"
+        :key="item.id"
+      ></component>
+    </transition-group>
   </div>
 </template>
 
@@ -39,6 +44,13 @@ import ChangeRole from "@/components/main/ChangeRole.vue";
 import TriageSystem from "@/components/triageSystem/TriageSystem.vue";
 import MobileInfusion from "@/components/mobileInfusion/MobileinFusion.vue";
 import PatientsControl from "@/components/patientsControl/PatientsControl.vue";
+import QualityControl from "@/components/qualityControl/QualityControl.vue";
+import ChangeShifts from "@/components/changeShifts/ChangeShifts.vue";
+import PreHospitalCare from "@/components/preHospitalCare/PreHospitalCare.vue";
+import Critically from "@/components/critically/Critically.vue";
+import Departments from "@/components/departments/Departments.vue";
+import Setting from "@/components/setting/Setting.vue";
+
 import { mapState, mapMutations } from "vuex";
 export default {
   name: "Home",
@@ -50,6 +62,12 @@ export default {
     TriageSystem,
     MobileInfusion,
     PatientsControl,
+    QualityControl,
+    ChangeShifts,
+    PreHospitalCare,
+    Critically,
+    Departments,
+    Setting,
   },
   data() {
     return {
@@ -65,7 +83,7 @@ export default {
   },
   methods: {
     changeArea() {
-      console.log("======");
+      console.log("======切换院区");
     },
     /**
      * 点击修改角色
@@ -89,8 +107,14 @@ export default {
      * 点击信息系统item
      */
     clickTreatmentItem(item) {
-      console.log("======");
-      console.log(item);
+      this.$store.commit("addTask", {
+        title: item.title,
+        icon: item.icon,
+        active: true,
+        componentName: item.name,
+        isWorking: "working",
+        id: item.id,
+      });
     },
   },
 };

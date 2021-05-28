@@ -1,25 +1,7 @@
 
 export default {
     state: {
-        currentTasks:[{
-            title: '分诊系统',
-            icon: require('@/assets/images/home/icon-triage.png'),
-            active: true,
-            componentName:'TriageSystem',
-            isWorking: 'working'
-        },{
-            title: '移动输液',
-            icon: require('@/assets/images/home/icon-moveInfusion.png'),
-            active: true,
-            componentName:'MobileInfusion',
-            isWorking: 'unwork'
-        },{
-            title: '患者管理',
-            icon: require('@/assets/images/home/icon-patient.png'),
-            active: true,
-            componentName:'PatientsControl',
-            isWorking: 'unwork'
-        }]
+        currentTasks:[]
     },
     getters:{
 
@@ -29,6 +11,9 @@ export default {
          * 添加任务
          */
         addTask(state, task){
+            for(var i = 0; i < state.currentTasks.length; i ++){
+                state.currentTasks[i].isWorking = 'unwork';
+            }
             state.currentTasks.push(task);
         },
         /**

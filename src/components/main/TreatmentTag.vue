@@ -4,7 +4,7 @@
       <span class="title">急诊临床信息系统（ECIS）</span>
       <ul class="list">
         <li v-for="(item, index) in dataList(role)" :key="index">
-          <a @click="clickTreatmentItem(item.title)">
+          <a @click="clickTreatmentItem(item)">
             <div class="image" :class="item.name">
               <img :src="item.icon" align="middle" />
             </div>
@@ -82,39 +82,39 @@ export default {
           border-radius: 8px;
           position: relative;
 
-          .triage {
+          .TriageSystem {
             background-color: rgb(101, 186, 137);
           }
 
-          .infusion {
+          .MobileInfusion {
             background-color: rgb(101, 186, 137);
           }
 
-          .patient {
+          .PatientsControl {
             background-color: rgb(101, 186, 137);
           }
 
-          .qualityControl {
+          .QualityControl {
             background-color: rgb(101, 186, 137);
           }
 
-          .shifts {
+          .ChangeShifts {
             background-color: rgb(49, 128, 222);
           }
 
-          .firstAid {
+          .PreHospitalCare {
             background-color: rgb(101, 186, 137);
           }
 
-          .critically {
+          .Critically {
             background-color: rgb(101, 186, 137);
           }
 
-          .departments {
+          .Departments {
             background-color: rgb(101, 186, 137);
           }
 
-          .setting {
+          .Setting {
             background-color: rgb(38, 74, 124);
           }
 

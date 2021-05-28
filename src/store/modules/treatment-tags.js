@@ -2,47 +2,55 @@ let icons = [
   {
     icon: require('@/assets/images/home/icon-triage.png'),
     title: '分诊系统',
-    name: 'triage',
+    name: 'TriageSystem',
+    id: 1
   },
   {
     icon: require('@/assets/images/home/icon-moveInfusion.png'),
     title: '移动输液',
-    name: 'infusion'
+    name: 'MobileInfusion',
+    id: 2
   },
   {
     icon: require('@/assets/images/home/icon-patient.png'),
     title: '患者管理',
-    name: 'patient'
+    name: 'PatientsControl',
+    id: 3
   },
   {
     icon: require('@/assets/images/home/icon-qualityControl.png'),
     title: '质控管理',
-    name: 'qualityControl'
+    name: 'QualityControl',
+    id: 4
   },
   {
     icon: require('@/assets/images/home/icon-shifts.png'),
     title: '交接班',
-    name: 'shifts'
+    name: 'ChangeShifts',
+    id: 5
   },
   {
     icon: require('@/assets/images/home/icon-firstAid.png'),
     title: '院前急救',
-    name: 'firstAid'
+    name: 'PreHospitalCare',
+    id: 6
   },
   {
     icon: require('@/assets/images/home/icon-critically.png'),
     title: '危急重症中心',
-    name: 'critically'
+    name: 'Critically',
+    id: 7
   },
   {
     icon: require('@/assets/images/home/icon-departments.png'),
     title: '科室管理',
-    name: 'departments'
+    name: 'Departments',
+    id: 8
   },
   {
     icon: require('@/assets/images/home/icon-setting.png'),
     title: '系统设置',
-    name: 'setting'
+    name: 'Setting'
   }
 ]
 
