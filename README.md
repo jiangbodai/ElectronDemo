@@ -1,7 +1,7 @@
 # 练习vue+elecgron
 
 ## dependencies
-"animate.css": "^4.1.1",
+"animate.css": "^4.1.1",\n
 "ant-design-vue": "^1.7.5",
 "core-js": "^3.1.2",
 "electron-updater": "^4.3.9",
