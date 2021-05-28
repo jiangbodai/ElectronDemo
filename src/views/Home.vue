@@ -20,8 +20,8 @@
       @clickCancel="changeRoleClickCancel"
     ></change-role>
     <transition-group
-      enter-active-class="animate__animated animate__zoomIn"
-      leave-active-class="animate__animated animate__zoomOut"
+      enter-active-class="animate__animated animate__fadeIn"
+      leave-active-class="animate__animated animate__fadeOut"
     >
       <component
         class="workTask"

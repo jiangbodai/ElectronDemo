@@ -19,7 +19,7 @@ export default {
 <style lang="stylus" scoped>
 .triageSystem {
   position: absolute;
-  background: #fff;
+  background: #cab;
   width: 100vw;
   height: calc(100vh - 40px);
 }

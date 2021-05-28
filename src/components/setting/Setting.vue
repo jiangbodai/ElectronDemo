@@ -18,7 +18,7 @@ export default {
 <style lang="stylus" scoped>
 .Setting {
   position: absolute;
-  background: #fff;
+  background: #bac;
   width: 100vw;
   height: calc(100vh - 40px);
 }

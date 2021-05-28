@@ -18,7 +18,7 @@ export default {
 <style lang="stylus" scoped>
 .ChangeShifts {
   position: absolute;
-  background: #fff;
+  background: #aaa;
   width: 100vw;
   height: calc(100vh - 40px);
 }

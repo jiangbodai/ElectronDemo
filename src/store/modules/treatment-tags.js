@@ -50,7 +50,8 @@ let icons = [
   {
     icon: require('@/assets/images/home/icon-setting.png'),
     title: '系统设置',
-    name: 'Setting'
+    name: 'Setting',
+    id: 9
   }
 ]
 

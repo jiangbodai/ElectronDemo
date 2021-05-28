@@ -18,7 +18,7 @@ export default {
 <style lang="stylus" scoped>
 .mobileinfusion {
   position: absolute;
-  background: #fff;
+  background: #ddd;
   width: 100vw;
   height: calc(100vh - 40px);
 }

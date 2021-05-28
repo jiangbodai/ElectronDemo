@@ -18,7 +18,7 @@ export default {
 <style lang="stylus" scoped>
 .Departments {
   position: absolute;
-  background: #fff;
+  background: #ccc;
   width: 100vw;
   height: calc(100vh - 40px);
 }

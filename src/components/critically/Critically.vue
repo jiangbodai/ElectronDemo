@@ -18,7 +18,7 @@ export default {
 <style lang="stylus" scoped>
 .Critically {
   position: absolute;
-  background: #fff;
+  background: #bbb;
   width: 100vw;
   height: calc(100vh - 40px);
 }

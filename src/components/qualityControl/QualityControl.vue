@@ -18,7 +18,7 @@ export default {
 <style lang="stylus" scoped>
 .QualityControl {
   position: absolute;
-  background: #fff;
+  background: #abc;
   width: 100vw;
   height: calc(100vh - 40px);
 }
