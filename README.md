@@ -9,6 +9,7 @@
 ### "vue-i18n": "^8.24.4",
 ### "vue-router": "^3.2.0",
 ### "vuex": "^3.4.0"
+<br>
 
 ## devDependencies
 ### "@vue/cli-plugin-babel": "~4.5.0",
