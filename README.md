@@ -1,5 +1,9 @@
 # 练习vue+elecgron
 
+## 使用
+下载代码之后 sudo cnpm install <br>
+运行项目 npm run electron:serve <br>
+
 ## dependencies
  "animate.css": "^4.1.1", <br>
  "ant-design-vue": "^1.7.5", <br>
