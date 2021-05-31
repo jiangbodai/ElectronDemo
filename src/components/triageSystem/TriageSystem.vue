@@ -1,16 +1,72 @@
 <template>
   <div class="triageSystem">
     <header-tool :data="data"></header-tool>
+    <triage-system-menu :dataList="menus" class="menu"></triage-system-menu>
   </div>
 </template>
 
 <script>
 import HeaderTool from "@/components/common/HeaderTooler.vue";
+import TriageSystemMenu from "./TriageSystemMenu.vue";
 export default {
   name: "triageSystem",
   props: ["data"],
   components: {
     HeaderTool,
+    TriageSystemMenu,
+  },
+  data() {
+    return {
+      menus: [
+        {
+          icon: require("@/assets/images/home/icon-firstAid.png"),
+          title: "新增分诊",
+          selected: true,
+          id: 1,
+        },
+        {
+          icon: require("@/assets/images/home/icon-firstAid.png"),
+          title: "新增分诊",
+          selected: false,
+          id: 2,
+        },
+        {
+          icon: require("@/assets/images/home/icon-firstAid.png"),
+          title: "新增分诊",
+          selected: false,
+          id: 3,
+        },
+        {
+          icon: require("@/assets/images/home/icon-firstAid.png"),
+          title: "新增分诊",
+          selected: false,
+          id: 4,
+        },
+        {
+          icon: require("@/assets/images/home/icon-firstAid.png"),
+          title: "新增分诊",
+          id: 5,
+        },
+        {
+          icon: require("@/assets/images/home/icon-firstAid.png"),
+          title: "新增分诊",
+          selected: false,
+          id: 6,
+        },
+        {
+          icon: require("@/assets/images/home/icon-firstAid.png"),
+          title: "新增分诊",
+          selected: false,
+          id: 7,
+        },
+        {
+          icon: require("@/assets/images/home/icon-firstAid.png"),
+          title: "新增分诊",
+          selected: false,
+          id: 8,
+        },
+      ],
+    };
   },
   mounted() {},
 };
@@ -22,5 +78,9 @@ export default {
   background: #cab;
   width: 100vw;
   height: calc(100vh - 40px);
+
+  .menu {
+    height: calc(100vh - 80px);
+  }
 }
 </style>
