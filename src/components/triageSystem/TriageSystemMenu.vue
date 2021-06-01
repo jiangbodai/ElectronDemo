@@ -1,5 +1,17 @@
 <template>
   <div class="TriageSystemMenu">
+    <div
+      style="background: green; height: 40px"
+      :class="collapsed ? 'collapsed' : 'unCollaps'"
+    >
+      <a-button
+        type="link"
+        style="margin: 0px; height: 40px; width: 40px;border-radius 0;text-align :center"
+        :icon="collapsed ? 'double-left' : 'double-right'"
+        @click="toggleCollapsed"
+      >
+      </a-button>
+    </div>
     <ul :class="collapsed ? 'collapsed' : 'unCollaps'">
       <li
         :class="item.selected == true ? 'selected' : 'unselect'"
@@ -7,8 +19,10 @@
         :key="index"
         @click="itemClicked(item)"
       >
-        <img :src="item.icon" alt="" />
-        <span v-show="collapsed">{{ item.title }}</span>
+        <a>
+          <img :src="item.icon" alt="" />
+          <span v-show="collapsed">{{ item.title }}</span>
+        </a>
       </li>
     </ul>
   </div>
@@ -27,6 +41,9 @@ export default {
     };
   },
   methods: {
+    toggleCollapsed() {
+      this.collapsed = !this.collapsed;
+    },
     itemClicked(e) {
       if (this.currentSelectItem) {
         this.currentSelectItem.selected = false;
@@ -74,14 +91,6 @@ export default {
     margin: 0;
     list-style: none;
 
-    .selected {
-      background: blue;
-    }
-
-    .unselect {
-      background: white;
-    }
-
     li {
       height: 40px;
       border-bottom: 0.5px solid #ddd;
@@ -100,6 +109,26 @@ export default {
         height: 40px;
         line-height: 40px;
       }
+    }
+
+    .selected {
+      background: blue;
+
+      img {
+        filter: brightness(100);
+      }
+
+      span {
+        color: white;
+      }
+
+      &:hover {
+        background: blue;
+      }
+    }
+
+    .unselect {
+      background: white;
     }
   }
 }

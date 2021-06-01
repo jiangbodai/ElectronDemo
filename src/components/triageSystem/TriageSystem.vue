@@ -19,51 +19,33 @@ export default {
     return {
       menus: [
         {
-          icon: require("@/assets/images/home/icon-firstAid.png"),
+          icon: require("@/assets/images/home/icon-triage.png"),
           title: "新增分诊",
           selected: true,
           id: 1,
         },
         {
           icon: require("@/assets/images/home/icon-firstAid.png"),
-          title: "新增分诊",
+          title: "院前急救",
           selected: false,
           id: 2,
         },
         {
-          icon: require("@/assets/images/home/icon-firstAid.png"),
-          title: "新增分诊",
+          icon: require("@/assets/images/home/icon-qualityControl.png"),
+          title: "质控管理",
           selected: false,
           id: 3,
         },
         {
-          icon: require("@/assets/images/home/icon-firstAid.png"),
-          title: "新增分诊",
+          icon: require("@/assets/images/home/icon-departments.png"),
+          title: "科室管理",
           selected: false,
           id: 4,
         },
         {
-          icon: require("@/assets/images/home/icon-firstAid.png"),
-          title: "新增分诊",
+          icon: require("@/assets/images/home/icon-setting.png"),
+          title: "系统设置",
           id: 5,
-        },
-        {
-          icon: require("@/assets/images/home/icon-firstAid.png"),
-          title: "新增分诊",
-          selected: false,
-          id: 6,
-        },
-        {
-          icon: require("@/assets/images/home/icon-firstAid.png"),
-          title: "新增分诊",
-          selected: false,
-          id: 7,
-        },
-        {
-          icon: require("@/assets/images/home/icon-firstAid.png"),
-          title: "新增分诊",
-          selected: false,
-          id: 8,
         },
       ],
     };
