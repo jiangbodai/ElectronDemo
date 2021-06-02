@@ -6,6 +6,7 @@ import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css';
 import VueI18n from 'vue-i18n'
 import animate from 'animate.css'
+import Print from 'vue-print-nb'
 
 
 
@@ -14,6 +15,7 @@ Vue.config.productionTip = false
 Vue.use(Antd)
 Vue.use(VueI18n)
 Vue.use(animate)
+Vue.use(Print)
 
 const i18n = new VueI18n({
   locale: localStorage.lang || 'zh-CN',
