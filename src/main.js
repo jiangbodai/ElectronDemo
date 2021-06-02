@@ -17,6 +17,7 @@ Vue.use(VueI18n)
 Vue.use(animate)
 Vue.use(Print)
 
+
 const i18n = new VueI18n({
   locale: localStorage.lang || 'zh-CN',
   messages: {
