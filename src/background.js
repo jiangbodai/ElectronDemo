@@ -25,10 +25,10 @@ function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({
     width: 1200,
-    maxWidth: 1200,
+    maxWidth: 2000,
     minWidth: 1200,
     height: 700,
-    maxHeight: 700,
+    maxHeight: 1000,
     minHeight: 700,
     webPreferences: {
         webSecurity: false,

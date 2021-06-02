@@ -43,6 +43,7 @@ export default {
   methods: {
     toggleCollapsed() {
       this.collapsed = !this.collapsed;
+      this.$emit("menuCollaps", this.collapsed);
     },
     itemClicked(e) {
       if (this.currentSelectItem) {
