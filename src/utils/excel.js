@@ -33,6 +33,44 @@ function exportExcel(json, name) {
     /* generate file and send to client */
     XLSX.writeFile(wb, name + ".xlsx");
 }
+/**
+ * 导出excel
+ * @param {*} json 需要导出的数据 name 导出excel的名称 start开始导出方法 end结束导出方法
+ */
+async function exportExcelWithCallBack({json = [],name = '',start,end}) {
+    if(start && typeof start == 'function'){
+        start();
+    }
+    /* convert state to workbook */
+    var data = new Array();
+    var keyArray = new Array();
+
+    for (const key1 in json) {
+        if (json.hasOwnProperty(key1)) {
+            const element = json[key1];
+            var rowDataArray = new Array();
+            for (const key2 in element) {
+                if (element.hasOwnProperty(key2)) {
+                    const element2 = element[key2];
+                    rowDataArray.push(element2);
+                    if (keyArray.length < getLength(element)) {
+                        keyArray.push(key2);
+                    }
+                }
+            }
+            data.push(rowDataArray);
+        }
+    }
+    data.splice(0, 0, keyArray);
+    const ws = XLSX.utils.aoa_to_sheet(data);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "SheetJS");
+    /* generate file and send to client */
+    XLSX.writeFile(wb, name + ".xlsx");
+    if(end && typeof end == 'function'){
+        end();
+    }
+}
 
 /**
  * @description: 导入excel文件并返回数据
@@ -112,5 +150,6 @@ function getLength(obj) {
 }
 export default {
     exportExcel,//导出文件
+    exportExcelWithCallBack,
     importExcel//导入文件
 }

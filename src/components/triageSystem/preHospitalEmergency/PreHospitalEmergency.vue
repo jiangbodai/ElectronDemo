@@ -13,34 +13,31 @@ import Excel from "@/utils/excel.js";
 export default {
   name: "PreHospitalEmergency",
   data() {
-    return {
-      jsonData: [
-        {
-          name: "路人甲",
-          phone: "123456789",
-          email: "000@123456.com",
-        },
-        {
-          name: "炮灰乙",
-          phone: "123456789",
-          email: "000@123456.com",
-        },
-        {
-          name: "土匪丙",
-          phone: "123456789",
-          email: "000@123456.com",
-        },
-        {
-          name: "流氓丁",
-          phone: "123456789",
-          email: "000@123456.com",
-        },
-      ],
-    };
+    return {};
   },
   methods: {
-    exportExcel() {
-      Excel.exportExcel(this.jsonData, "文件");
+    async exportExcel() {
+      // Excel.exportExcel(this.jsonData, "文件");
+      let data = [];
+      for (let i = 0; i < 10000; i++) {
+        data.push({
+          name: "姓名" + i,
+          phone: i + "",
+          email: "000@1" + i + ".com",
+        });
+      }
+
+      console.log("====");
+      Excel.exportExcelWithCallBack({
+        json: data,
+        name: new Date() + "",
+        start() {
+          console.log("开始导出");
+        },
+        end() {
+          console.log("导出结束");
+        },
+      });
     },
     importFile() {
       Excel.importExcel((data, dataRef) => {
